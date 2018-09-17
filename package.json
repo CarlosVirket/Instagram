@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "graphql-yoga": "^1.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

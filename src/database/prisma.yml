@@ -1,2 +1,6 @@
 endpoint: https://us1.prisma.sh/carlosacamargo16-259bbd/instagram_db/dev
 datamodel: datamodel.graphql
+
+hooks:
+  post-deploy:
+    - graphql get-schema --project database

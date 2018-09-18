@@ -49,9 +49,15 @@ type Likes {
 
 }
 
-type Comment {
-  photo_id:Photo!
-  like_by:User!
-  time_stamp:DateTime!
-  comment:String!
+
+enum Suscriptions{
+  FREE
+  PREMIUM
 }
+
+enum Genders {
+  H
+  M
+
+}
+

@@ -1,0 +1,840 @@
+# source: http://localhost:4000
+# timestamp: Mon Sep 17 2018 21:47:32 GMT-0500 (Hora de verano central (México))
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+enum Categories {
+  TVSHOW
+  MOVIE
+}
+
+scalar DateTime
+
+enum Genders {
+  H
+  M
+}
+
+enum Genres {
+  HORROR
+  COMEDY
+  SCIFY
+  DRAMA
+  HISTORY
+  MUSICAL
+  BIO
+  ACTION
+  ANIMATION
+}
+
+type Movie implements Node {
+  id: ID!
+  title: String!
+  categorie: Categories!
+  sinopsis: String!
+  rate: Rates!
+  poster: String
+  release_date: DateTime!
+  genre: Genres!
+  length: Int!
+  video_url: String!
+  subscription_type: Subscriptions!
+}
+
+input MovieWhereInput {
+  """Logical AND on all given filters."""
+  AND: [MovieWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [MovieWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [MovieWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  title: String
+
+  """All values that are not equal to given value."""
+  title_not: String
+
+  """All values that are contained in given list."""
+  title_in: [String!]
+
+  """All values that are not contained in given list."""
+  title_not_in: [String!]
+
+  """All values less than the given value."""
+  title_lt: String
+
+  """All values less than or equal the given value."""
+  title_lte: String
+
+  """All values greater than the given value."""
+  title_gt: String
+
+  """All values greater than or equal the given value."""
+  title_gte: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values not ending with the given string."""
+  title_not_ends_with: String
+  categorie: Categories
+
+  """All values that are not equal to given value."""
+  categorie_not: Categories
+
+  """All values that are contained in given list."""
+  categorie_in: [Categories!]
+
+  """All values that are not contained in given list."""
+  categorie_not_in: [Categories!]
+  sinopsis: String
+
+  """All values that are not equal to given value."""
+  sinopsis_not: String
+
+  """All values that are contained in given list."""
+  sinopsis_in: [String!]
+
+  """All values that are not contained in given list."""
+  sinopsis_not_in: [String!]
+
+  """All values less than the given value."""
+  sinopsis_lt: String
+
+  """All values less than or equal the given value."""
+  sinopsis_lte: String
+
+  """All values greater than the given value."""
+  sinopsis_gt: String
+
+  """All values greater than or equal the given value."""
+  sinopsis_gte: String
+
+  """All values containing the given string."""
+  sinopsis_contains: String
+
+  """All values not containing the given string."""
+  sinopsis_not_contains: String
+
+  """All values starting with the given string."""
+  sinopsis_starts_with: String
+
+  """All values not starting with the given string."""
+  sinopsis_not_starts_with: String
+
+  """All values ending with the given string."""
+  sinopsis_ends_with: String
+
+  """All values not ending with the given string."""
+  sinopsis_not_ends_with: String
+  rate: Rates
+
+  """All values that are not equal to given value."""
+  rate_not: Rates
+
+  """All values that are contained in given list."""
+  rate_in: [Rates!]
+
+  """All values that are not contained in given list."""
+  rate_not_in: [Rates!]
+  poster: String
+
+  """All values that are not equal to given value."""
+  poster_not: String
+
+  """All values that are contained in given list."""
+  poster_in: [String!]
+
+  """All values that are not contained in given list."""
+  poster_not_in: [String!]
+
+  """All values less than the given value."""
+  poster_lt: String
+
+  """All values less than or equal the given value."""
+  poster_lte: String
+
+  """All values greater than the given value."""
+  poster_gt: String
+
+  """All values greater than or equal the given value."""
+  poster_gte: String
+
+  """All values containing the given string."""
+  poster_contains: String
+
+  """All values not containing the given string."""
+  poster_not_contains: String
+
+  """All values starting with the given string."""
+  poster_starts_with: String
+
+  """All values not starting with the given string."""
+  poster_not_starts_with: String
+
+  """All values ending with the given string."""
+  poster_ends_with: String
+
+  """All values not ending with the given string."""
+  poster_not_ends_with: String
+  release_date: DateTime
+
+  """All values that are not equal to given value."""
+  release_date_not: DateTime
+
+  """All values that are contained in given list."""
+  release_date_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  release_date_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  release_date_lt: DateTime
+
+  """All values less than or equal the given value."""
+  release_date_lte: DateTime
+
+  """All values greater than the given value."""
+  release_date_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  release_date_gte: DateTime
+  genre: Genres
+
+  """All values that are not equal to given value."""
+  genre_not: Genres
+
+  """All values that are contained in given list."""
+  genre_in: [Genres!]
+
+  """All values that are not contained in given list."""
+  genre_not_in: [Genres!]
+  length: Int
+
+  """All values that are not equal to given value."""
+  length_not: Int
+
+  """All values that are contained in given list."""
+  length_in: [Int!]
+
+  """All values that are not contained in given list."""
+  length_not_in: [Int!]
+
+  """All values less than the given value."""
+  length_lt: Int
+
+  """All values less than or equal the given value."""
+  length_lte: Int
+
+  """All values greater than the given value."""
+  length_gt: Int
+
+  """All values greater than or equal the given value."""
+  length_gte: Int
+  video_url: String
+
+  """All values that are not equal to given value."""
+  video_url_not: String
+
+  """All values that are contained in given list."""
+  video_url_in: [String!]
+
+  """All values that are not contained in given list."""
+  video_url_not_in: [String!]
+
+  """All values less than the given value."""
+  video_url_lt: String
+
+  """All values less than or equal the given value."""
+  video_url_lte: String
+
+  """All values greater than the given value."""
+  video_url_gt: String
+
+  """All values greater than or equal the given value."""
+  video_url_gte: String
+
+  """All values containing the given string."""
+  video_url_contains: String
+
+  """All values not containing the given string."""
+  video_url_not_contains: String
+
+  """All values starting with the given string."""
+  video_url_starts_with: String
+
+  """All values not starting with the given string."""
+  video_url_not_starts_with: String
+
+  """All values ending with the given string."""
+  video_url_ends_with: String
+
+  """All values not ending with the given string."""
+  video_url_not_ends_with: String
+  subscription_type: Subscriptions
+
+  """All values that are not equal to given value."""
+  subscription_type_not: Subscriptions
+
+  """All values that are contained in given list."""
+  subscription_type_in: [Subscriptions!]
+
+  """All values that are not contained in given list."""
+  subscription_type_not_in: [Subscriptions!]
+}
+
+type Mutation {
+  signup(name: String!, email: String!, lastname: String!, password: String!, birth_date: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  upgradeSubscription(subscription_type: Subscriptions!): User
+  addRating(rate: Float!, movie_id: ID!): Rating!
+  updateUser(name: String, lastname: String, password: String, birth_date: String, gender: Genders, avatar: String): User!
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+type Query {
+  users: [User!]!
+  me: User!
+  movies: [Movie!]!
+  movie(id: ID!): Movie
+  moviesGenre(genre: Genres): [Movie!]!
+  moviesCategory(category: Categories): [Movie!]!
+  moviesSubscription(subscription: Subscriptions): [Movie!]!
+}
+
+enum Rates {
+  A
+  B
+  C
+  D
+}
+
+type Rating implements Node {
+  id: ID!
+  user(where: UserWhereInput): User!
+  movie(where: MovieWhereInput): Movie!
+  rate: Float!
+}
+
+type Subscription implements Node {
+  id: ID!
+  user(where: UserWhereInput): User!
+  subscription_type: Subscriptions!
+  end_date: DateTime!
+  price: Int!
+}
+
+enum Subscriptions {
+  FREE
+  GOLD
+  PREMIUM
+}
+
+input SubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [SubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [SubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [SubscriptionWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  subscription_type: Subscriptions
+
+  """All values that are not equal to given value."""
+  subscription_type_not: Subscriptions
+
+  """All values that are contained in given list."""
+  subscription_type_in: [Subscriptions!]
+
+  """All values that are not contained in given list."""
+  subscription_type_not_in: [Subscriptions!]
+  end_date: DateTime
+
+  """All values that are not equal to given value."""
+  end_date_not: DateTime
+
+  """All values that are contained in given list."""
+  end_date_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  end_date_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  end_date_lt: DateTime
+
+  """All values less than or equal the given value."""
+  end_date_lte: DateTime
+
+  """All values greater than the given value."""
+  end_date_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  end_date_gte: DateTime
+  price: Int
+
+  """All values that are not equal to given value."""
+  price_not: Int
+
+  """All values that are contained in given list."""
+  price_in: [Int!]
+
+  """All values that are not contained in given list."""
+  price_not_in: [Int!]
+
+  """All values less than the given value."""
+  price_lt: Int
+
+  """All values less than or equal the given value."""
+  price_lte: Int
+
+  """All values greater than the given value."""
+  price_gt: Int
+
+  """All values greater than or equal the given value."""
+  price_gte: Int
+  user: UserWhereInput
+}
+
+type User implements Node {
+  id: ID!
+  name: String!
+  lastname: String!
+  email: String!
+  password: String!
+  birth_date: DateTime!
+  gender: Genders
+  status: Boolean
+  paypal_id: String
+  avatar: String
+  subscription(where: SubscriptionWhereInput): Subscription
+}
+
+input UserWhereInput {
+  """Logical AND on all given filters."""
+  AND: [UserWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [UserWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [UserWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  lastname: String
+
+  """All values that are not equal to given value."""
+  lastname_not: String
+
+  """All values that are contained in given list."""
+  lastname_in: [String!]
+
+  """All values that are not contained in given list."""
+  lastname_not_in: [String!]
+
+  """All values less than the given value."""
+  lastname_lt: String
+
+  """All values less than or equal the given value."""
+  lastname_lte: String
+
+  """All values greater than the given value."""
+  lastname_gt: String
+
+  """All values greater than or equal the given value."""
+  lastname_gte: String
+
+  """All values containing the given string."""
+  lastname_contains: String
+
+  """All values not containing the given string."""
+  lastname_not_contains: String
+
+  """All values starting with the given string."""
+  lastname_starts_with: String
+
+  """All values not starting with the given string."""
+  lastname_not_starts_with: String
+
+  """All values ending with the given string."""
+  lastname_ends_with: String
+
+  """All values not ending with the given string."""
+  lastname_not_ends_with: String
+  email: String
+
+  """All values that are not equal to given value."""
+  email_not: String
+
+  """All values that are contained in given list."""
+  email_in: [String!]
+
+  """All values that are not contained in given list."""
+  email_not_in: [String!]
+
+  """All values less than the given value."""
+  email_lt: String
+
+  """All values less than or equal the given value."""
+  email_lte: String
+
+  """All values greater than the given value."""
+  email_gt: String
+
+  """All values greater than or equal the given value."""
+  email_gte: String
+
+  """All values containing the given string."""
+  email_contains: String
+
+  """All values not containing the given string."""
+  email_not_contains: String
+
+  """All values starting with the given string."""
+  email_starts_with: String
+
+  """All values not starting with the given string."""
+  email_not_starts_with: String
+
+  """All values ending with the given string."""
+  email_ends_with: String
+
+  """All values not ending with the given string."""
+  email_not_ends_with: String
+  password: String
+
+  """All values that are not equal to given value."""
+  password_not: String
+
+  """All values that are contained in given list."""
+  password_in: [String!]
+
+  """All values that are not contained in given list."""
+  password_not_in: [String!]
+
+  """All values less than the given value."""
+  password_lt: String
+
+  """All values less than or equal the given value."""
+  password_lte: String
+
+  """All values greater than the given value."""
+  password_gt: String
+
+  """All values greater than or equal the given value."""
+  password_gte: String
+
+  """All values containing the given string."""
+  password_contains: String
+
+  """All values not containing the given string."""
+  password_not_contains: String
+
+  """All values starting with the given string."""
+  password_starts_with: String
+
+  """All values not starting with the given string."""
+  password_not_starts_with: String
+
+  """All values ending with the given string."""
+  password_ends_with: String
+
+  """All values not ending with the given string."""
+  password_not_ends_with: String
+  birth_date: DateTime
+
+  """All values that are not equal to given value."""
+  birth_date_not: DateTime
+
+  """All values that are contained in given list."""
+  birth_date_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  birth_date_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  birth_date_lt: DateTime
+
+  """All values less than or equal the given value."""
+  birth_date_lte: DateTime
+
+  """All values greater than the given value."""
+  birth_date_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  birth_date_gte: DateTime
+  gender: Genders
+
+  """All values that are not equal to given value."""
+  gender_not: Genders
+
+  """All values that are contained in given list."""
+  gender_in: [Genders!]
+
+  """All values that are not contained in given list."""
+  gender_not_in: [Genders!]
+  status: Boolean
+
+  """All values that are not equal to given value."""
+  status_not: Boolean
+  paypal_id: String
+
+  """All values that are not equal to given value."""
+  paypal_id_not: String
+
+  """All values that are contained in given list."""
+  paypal_id_in: [String!]
+
+  """All values that are not contained in given list."""
+  paypal_id_not_in: [String!]
+
+  """All values less than the given value."""
+  paypal_id_lt: String
+
+  """All values less than or equal the given value."""
+  paypal_id_lte: String
+
+  """All values greater than the given value."""
+  paypal_id_gt: String
+
+  """All values greater than or equal the given value."""
+  paypal_id_gte: String
+
+  """All values containing the given string."""
+  paypal_id_contains: String
+
+  """All values not containing the given string."""
+  paypal_id_not_contains: String
+
+  """All values starting with the given string."""
+  paypal_id_starts_with: String
+
+  """All values not starting with the given string."""
+  paypal_id_not_starts_with: String
+
+  """All values ending with the given string."""
+  paypal_id_ends_with: String
+
+  """All values not ending with the given string."""
+  paypal_id_not_ends_with: String
+  avatar: String
+
+  """All values that are not equal to given value."""
+  avatar_not: String
+
+  """All values that are contained in given list."""
+  avatar_in: [String!]
+
+  """All values that are not contained in given list."""
+  avatar_not_in: [String!]
+
+  """All values less than the given value."""
+  avatar_lt: String
+
+  """All values less than or equal the given value."""
+  avatar_lte: String
+
+  """All values greater than the given value."""
+  avatar_gt: String
+
+  """All values greater than or equal the given value."""
+  avatar_gte: String
+
+  """All values containing the given string."""
+  avatar_contains: String
+
+  """All values not containing the given string."""
+  avatar_not_contains: String
+
+  """All values starting with the given string."""
+  avatar_starts_with: String
+
+  """All values not starting with the given string."""
+  avatar_not_starts_with: String
+
+  """All values ending with the given string."""
+  avatar_ends_with: String
+
+  """All values not ending with the given string."""
+  avatar_not_ends_with: String
+  subscription: SubscriptionWhereInput
+}

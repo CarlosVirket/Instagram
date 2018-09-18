@@ -1,8 +1,21 @@
 {
   "dependencies": {
-    "graphql-yoga": "^1.16.2"
+    "bcrypt": "^3.0.0",
+    "binding": "^3.0.3",
+    "graphql-yoga": "^1.16.2",
+    "jsonwebtoken": "^8.3.0",
+    "prisma": "^1.16.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
-  }
+  },
+  "name": "Instagran",
+  "version": "1.0.0",
+  "description": "Clone backend instagram",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon nodemon -L src/bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "Carlos",
+  "license": "MIT"
 }
